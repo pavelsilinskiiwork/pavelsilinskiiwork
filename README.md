@@ -1,6 +1,6 @@
 # Hi, I'm Pavel Silinskii 👋
 
-**Full-Stack PHP Developer** based in Needham, MA 🇺🇸  
+**Full-Stack PHP Developer** based in Needham, MA US  
 15+ years building web applications, e-commerce platforms, and API integrations.  
 Currently expanding into modern JavaScript frontend (React/Vue).
 
@@ -85,7 +85,7 @@ Currently expanding into modern JavaScript frontend (React/Vue).
 
 - ✅ 26 Easy · 72 Medium · 21 Hard
 - 🔥 Max streak: 57 days · 104 active days
-- 🏅 50 Days Badge 2026
+- 🏅 100 Days Badge 2026
 
 ---
 
