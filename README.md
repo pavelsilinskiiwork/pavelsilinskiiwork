@@ -83,8 +83,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 26 Easy · 72 Medium · 21 Hard
-- 🔥 Max streak: 57 days · 104 active days
+- ✅ 43 Easy · 116 Medium · 34 Hard
+- 🔥 Current streak: 57 days · 165 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
