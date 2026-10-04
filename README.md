@@ -90,7 +90,6 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 ## 📊 GitHub Stats
 
-![Pavel's GitHub stats](https://github-readme-stats.vercel.app/api?username=pavelsilinskiiwork&show_icons=true&theme=default)
 ![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=pavelsilinskiiwork&layout=compact)
 
 ## 🗺️ What's Next
