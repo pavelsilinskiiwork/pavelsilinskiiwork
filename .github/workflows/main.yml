@@ -27,7 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LEETCODE_USERNAME: ${{ vars.LEETCODE_USERNAME }}   # optional
           # EXCLUDE_REPOS: "boilerplate-npm"                 # optional, comma-separated
-        run: python scripts/update_readme.py
+        run: python update_readme.py
 
       - name: Commit changes
         run: |
