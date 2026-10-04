@@ -68,10 +68,9 @@ WordPress plugin with drag-and-drop form builder and REST API
 - [**wp-age-verification**](https://github.com/pavelsilinskiiwork/wp-age-verification) — Age verification popup for WordPress. Shows a verification gate when a visitor enters the site (or selected pages/categories). · `PHP`
 - [**advanced-contact-forms**](https://github.com/pavelsilinskiiwork/advanced-contact-forms) — WordPress plugin for creating contact forms with drag-and-drop builder, database storage, REST API and CSV export · `PHP`
 - [**python-basics**](https://github.com/pavelsilinskiiwork/python-basics) — _No description yet_ · `Python`
-- [**ecommerce-api**](https://github.com/pavelsilinskiiwork/ecommerce-api) — E-commerce REST API with Stripe payment integration, shopping cart, order management and 24 automated tests · `PHP`
+- [**ecommerce-api**](https://github.com/pavelsilinskiiwork/ecommerce-api) — Laravel.E-commerce REST API with Stripe payment integration, shopping cart, order management and 24 automated tests · `PHP`
 - [**boilerplate-npm**](https://github.com/pavelsilinskiiwork/boilerplate-npm) — A boilerplate for the freeCodeCamp curriculum. · `JavaScript` · fork
 - [**job-tracker-api**](https://github.com/pavelsilinskiiwork/job-tracker-api) — REST API for tracking job applications — built with Laravel 13, JWT authentication, and Docker support. · `PHP`
-- [**usacitizen**](https://github.com/pavelsilinskiiwork/usacitizen) — questions for US citizenship with answers
 <!--REPOS:END-->
 
 ## 📜 Certifications
