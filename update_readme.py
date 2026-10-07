@@ -122,13 +122,15 @@ def build_plugins_block(plugins: list[dict]) -> str:
         slug = p.get("slug", "")
         name = html.unescape(re.sub(r"<[^>]+>", "", p.get("name", slug))).strip()
         desc = html.unescape(re.sub(r"<[^>]+>", "", p.get("short_description") or "")).strip()
-        meta = [f"{_installs(p.get('active_installs') or 0)} active installs"]
+        meta = []
+        if (p.get("active_installs") or 0) >= 10:  # API reports 0 for "<10": hide it
+            meta.append(f"{_installs(p['active_installs'])} active installs")
         if p.get("num_ratings"):
             meta.append(f"⭐ {round((p.get('rating') or 0) / 20, 1)}/5 ({p['num_ratings']})")
         line = f"- [**{name}**](https://wordpress.org/plugins/{slug}/)"
         if desc:
             line += f" — {desc}"
-        rows.append(f"{line} · {' · '.join(meta)}")
+        rows.append(f"{line} · {' · '.join(meta)}" if meta else line)
     return "\n".join(rows)
 
 
