@@ -26,6 +26,7 @@ jobs:
           GITHUB_USER: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LEETCODE_USERNAME: ${{ vars.LEETCODE_USERNAME }}   # optional
+          WP_USERNAME: pavelsilinskii
           # EXCLUDE_REPOS: "boilerplate-npm"                 # optional, comma-separated
         run: python update_readme.py
 
