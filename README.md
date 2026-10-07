@@ -73,6 +73,12 @@ WordPress plugin with drag-and-drop form builder and REST API
 - [**job-tracker-api**](https://github.com/pavelsilinskiiwork/job-tracker-api) — REST API for tracking job applications — built with Laravel 13, JWT authentication, and Docker support. · `PHP`
 <!--REPOS:END-->
 
+## 🧩 WordPress Plugins
+
+   <!--WPPLUGINS:START-->
+   _Generated automatically from my [WordPress.org profile](https://profiles.wordpress.org/pavelsilinskii/)._
+   <!--WPPLUGINS:END-->
+
 ## 📜 Certifications
 
 - 🏆 freeCodeCamp — JavaScript Algorithms and Data Structures
