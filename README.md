@@ -77,9 +77,9 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 🧩 WordPress Plugins
 
    <!--WPPLUGINS:START-->
-- [**Pavel Silinskii Age Verification**](https://wordpress.org/plugins/pavel-silinskii-age-verification/) — Age verification popup for WordPress. Supports Yes/No and date of birth verification modes, with block or redirect on decline. · <10 active installs
-- [**Pavel Silinskii Contact Forms**](https://wordpress.org/plugins/pavel-silinskii-contact-forms/) — A powerful contact form plugin with a drag-and-drop builder, database storage, email notifications, REST API, and CSV export of submissions. · <10 active installs
-- [**Pavel Silinskii Cookie Consent**](https://wordpress.org/plugins/pavel-silinskii-cookie-consent/) — Lightweight GDPR/CCPA cookie consent banner with bar and popup layouts, light/dark themes, and one-click accept/decline. · <10 active installs
+- [**Pavel Silinskii Age Verification**](https://wordpress.org/plugins/pavel-silinskii-age-verification/) — Age verification popup for WordPress. Supports Yes/No and date of birth verification modes, with block or redirect on decline.
+- [**Pavel Silinskii Contact Forms**](https://wordpress.org/plugins/pavel-silinskii-contact-forms/) — A powerful contact form plugin with a drag-and-drop builder, database storage, email notifications, REST API, and CSV export of submissions.
+- [**Pavel Silinskii Cookie Consent**](https://wordpress.org/plugins/pavel-silinskii-cookie-consent/) — Lightweight GDPR/CCPA cookie consent banner with bar and popup layouts, light/dark themes, and one-click accept/decline.
 <!--WPPLUGINS:END-->
 
 ## 📜 Certifications
