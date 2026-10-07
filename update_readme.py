@@ -3,6 +3,7 @@
 
 Blocks (each is optional; a block is skipped if its markers are missing):
   <!--REPOS:START-->    ... <!--REPOS:END-->      all public repositories (GitHub API)
+  <!--WPPLUGINS:START--> ... <!--WPPLUGINS:END--> WordPress.org plugins (WP_USERNAME)
   <!--LEETCODE:START--> ... <!--LEETCODE:END-->   LeetCode stats (needs a username)
 
 Standard library only.
@@ -12,6 +13,7 @@ Usage:
     python scripts/update_readme.py --github-user NAME --leetcode-user NAME --no-forks
 """
 import argparse
+import html
 import json
 import os
 import re
@@ -84,6 +86,53 @@ def build_repos_block(repos: list[dict], user: str, include_forks: bool,
 
 
 # --------------------------------------------------------------------------- #
+# WordPress.org plugins
+# --------------------------------------------------------------------------- #
+
+
+def fetch_plugins(wp_user: str) -> list[dict]:
+    """Plugins authored by a WordPress.org username (official public API)."""
+    from urllib.parse import urlencode
+    qs = urlencode({
+        "action": "query_plugins",
+        "request[author]": wp_user,
+        "request[per_page]": 100,
+        "request[fields][short_description]": 1,
+        "request[fields][active_installs]": 1,
+        "request[fields][rating]": 1,
+        "request[fields][num_ratings]": 1,
+        "request[fields][last_updated]": 1,
+    })
+    data = http_json(f"https://api.wordpress.org/plugins/info/1.2/?{qs}",
+                     {"User-Agent": "profile-readme-updater"})
+    return data.get("plugins") or []
+
+
+def _installs(n: int) -> str:
+    if n >= 1000:
+        return f"{n // 1000}k+" if n % 1000 == 0 or n >= 10000 else f"{n / 1000:.1f}k+"
+    return f"{n}+" if n else "<10"
+
+
+def build_plugins_block(plugins: list[dict]) -> str:
+    if not plugins:
+        return "_No plugins published yet._"
+    rows = []
+    for p in sorted(plugins, key=lambda x: x.get("active_installs") or 0, reverse=True):
+        slug = p.get("slug", "")
+        name = html.unescape(re.sub(r"<[^>]+>", "", p.get("name", slug))).strip()
+        desc = html.unescape(re.sub(r"<[^>]+>", "", p.get("short_description") or "")).strip()
+        meta = [f"{_installs(p.get('active_installs') or 0)} active installs"]
+        if p.get("num_ratings"):
+            meta.append(f"⭐ {round((p.get('rating') or 0) / 20, 1)}/5 ({p['num_ratings']})")
+        line = f"- [**{name}**](https://wordpress.org/plugins/{slug}/)"
+        if desc:
+            line += f" — {desc}"
+        rows.append(f"{line} · {' · '.join(meta)}")
+    return "\n".join(rows)
+
+
+# --------------------------------------------------------------------------- #
 # LeetCode
 # --------------------------------------------------------------------------- #
 
@@ -133,6 +182,8 @@ def main() -> int:
     ap.add_argument("--github-user",
                     default=os.environ.get("GITHUB_USER") or os.environ.get("GITHUB_REPOSITORY_OWNER"))
     ap.add_argument("--leetcode-user", default=os.environ.get("LEETCODE_USERNAME"))
+    ap.add_argument("--wp-user", default=os.environ.get("WP_USERNAME"),
+                    help="WordPress.org username (plugins author)")
     ap.add_argument("--no-forks", action="store_true", help="hide forked repositories")
     ap.add_argument("--exclude", default=os.environ.get("EXCLUDE_REPOS", ""),
                     help="comma-separated repository names to hide")
@@ -155,6 +206,15 @@ def main() -> int:
             ok += 1
         except Exception as exc:
             print(f"repos block skipped: {exc}", file=sys.stderr)
+
+    if args.wp_user:
+        attempted += 1
+        try:
+            text = replace_block(text, "WPPLUGINS",
+                                 build_plugins_block(fetch_plugins(args.wp_user)))
+            ok += 1
+        except Exception as exc:
+            print(f"wordpress plugins block skipped: {exc}", file=sys.stderr)
 
     if args.leetcode_user:
         attempted += 1
