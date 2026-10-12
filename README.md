@@ -80,6 +80,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 - [**Pavel Silinskii Age Verification**](https://wordpress.org/plugins/pavel-silinskii-age-verification/) — Age verification popup for WordPress. Supports Yes/No and date of birth verification modes, with block or redirect on decline.
 - [**Pavel Silinskii Contact Forms**](https://wordpress.org/plugins/pavel-silinskii-contact-forms/) — A powerful contact form plugin with a drag-and-drop builder, database storage, email notifications, REST API, and CSV export of submissions.
 - [**Pavel Silinskii Cookie Consent**](https://wordpress.org/plugins/pavel-silinskii-cookie-consent/) — Lightweight GDPR/CCPA cookie consent banner with bar and popup layouts, light/dark themes, and one-click accept/decline.
+- [**Pavel Silinskii Popup Builder**](https://wordpress.org/plugins/pavel-silinskii-popup-builder/) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements.
 <!--WPPLUGINS:END-->
 
 ## 📜 Certifications
@@ -91,8 +92,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 45 Easy · 119 Medium · 36 Hard
-- 🔥 Current streak: 57 days · 172 active days
+- ✅ 45 Easy · 119 Medium · 37 Hard
+- 🔥 Current streak: 57 days · 173 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
