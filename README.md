@@ -3,7 +3,7 @@
 **Full-Stack PHP Developer (Laravel, WordPress) · expanding into AI-powered applications**
 
 Based in Needham, MA US. 15+ years building web applications, e-commerce platforms, and API integrations.
-Currently adding Python and LLM integrations to my backend toolkit, alongside modern JavaScript frontend.
+Currently adding Python and LLM integrations (RAG, vector search) to my backend toolkit, alongside modern JavaScript frontend.
 
 ## 🛠️ Tech Stack
 
@@ -35,8 +35,18 @@ Currently adding Python and LLM integrations to my backend toolkit, alongside mo
 
 ![Python](https://img.shields.io/badge/Python-learning-3776AB?style=flat&logo=python&logoColor=white)
 ![LLM APIs](https://img.shields.io/badge/LLM_APIs-learning-412991?style=flat)
+![RAG](https://img.shields.io/badge/RAG-learning-0A7B83?style=flat)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-learning-FF6446?style=flat)
 
 ## 🚀 Featured Projects
+
+### [RAG Assistant](https://github.com/pavelsilinskiiwork/rag-assistant)
+Command-line question answering over local documents: semantic search with ChromaDB, answers from Claude with source citations
+
+- Paragraph-aware chunking · local embeddings · persistent vector store
+- Two-layer hallucination guard: distance threshold + "answer only from context" prompt
+- Retrieval evaluation script (8 test cases); smaller chunks improved the distance on the vacation query from 0.81 to 0.57
+- Python · ChromaDB · Anthropic API
 
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
@@ -89,6 +99,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 - 🏆 freeCodeCamp — JavaScript Algorithms and Data Structures
 - 🏆 freeCodeCamp — Responsive Web Design
+- 🏆 Kaggle — Python
+- 🏆 [Google Cloud — Introduction to Generative AI](https://partner.skills.google/public_profiles/de745e7c-ad5e-4b78-9747-ea58cfefe067/badges/26811194)
 - 📚 AWS Cloud Practitioner Essentials — in progress
 
 ## 💻 LeetCode
@@ -108,9 +120,11 @@ WordPress plugin with drag-and-drop form builder and REST API
 - 🧩 More open-source WordPress plugins
 - 🅻 Laravel projects (APIs and full-stack apps)
 - 🐍 Python and LLM integrations — connecting AI to real backend systems
+- 🔌 RAG Assistant as a FastAPI service (REST + Swagger) with PDF ingestion
+- 🤖 LangChain and tool-using agents
 - ⚛️ React / Vue — modern frontend to complement PHP backend skills
 - ☁️ AWS Certified Cloud Practitioner
 
 ## 📫 Let's Connect
 
-Open to remote PHP/Full-Stack Developer positions and freelance projects.
+Open to remote PHP/Full-Stack Developer positions, Applied AI / LLM-integration backend roles, and freelance projects.
