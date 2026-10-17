@@ -48,6 +48,8 @@ Command-line question answering over local documents: semantic search with Chrom
 - Retrieval evaluation script (8 test cases); smaller chunks improved the distance on the vacation query from 0.81 to 0.57
 - Python · ChromaDB · Anthropic API
 
+[![tests](https://github.com/pavelsilinskiiwork/rag-assistant/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/rag-assistant/actions/workflows/tests.yml)
+
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
 
