@@ -106,7 +106,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 - 🏆 freeCodeCamp — JavaScript Algorithms and Data Structures
 - 🏆 freeCodeCamp — Responsive Web Design
-- 🏆 Kaggle — Python
+- 🏆 [Kaggle — Python] (https://www.kaggle.com/learn/certification/pavelsilinskii26/python)
 - 🏆 [Google Cloud — Introduction to Generative AI](https://partner.skills.google/public_profiles/de745e7c-ad5e-4b78-9747-ea58cfefe067/badges/26811194)
 - 📚 AWS Cloud Practitioner Essentials — in progress
 
