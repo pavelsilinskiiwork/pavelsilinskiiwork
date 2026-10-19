@@ -3,7 +3,7 @@
 **Full-Stack PHP Developer (Laravel, WordPress) · expanding into AI-powered applications**
 
 Based in Needham, MA US. 15+ years building web applications, e-commerce platforms, and API integrations.
-Currently adding Python and LLM integrations (RAG, vector search) to my backend toolkit, alongside modern JavaScript frontend.
+Now building Python LLM applications: RAG, vector search, tool-calling agents, with tests, Docker and CI.
 
 ## 🛠️ Tech Stack
 
@@ -31,24 +31,29 @@ Currently adding Python and LLM integrations (RAG, vector search) to my backend 
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
 ![AWS](https://img.shields.io/badge/AWS-learning-232F3E?style=flat&logo=amazonwebservices&logoColor=white)
 
-**Learning: AI / Python**
+**AI / Python**
 
-![Python](https://img.shields.io/badge/Python-learning-3776AB?style=flat&logo=python&logoColor=white)
-![LLM APIs](https://img.shields.io/badge/LLM_APIs-learning-412991?style=flat)
-![RAG](https://img.shields.io/badge/RAG-learning-0A7B83?style=flat)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-learning-FF6446?style=flat)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![Anthropic](https://img.shields.io/badge/Anthropic_API-412991?style=flat)
+![RAG](https://img.shields.io/badge/RAG-0A7B83?style=flat)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6446?style=flat)
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat&logo=pytest&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 
 ## 🚀 Featured Projects
 
 ### [RAG Assistant](https://github.com/pavelsilinskiiwork/rag-assistant)
-Command-line question answering over local documents: semantic search with ChromaDB, answers from Claude with source citations
-
-- Paragraph-aware chunking · local embeddings · persistent vector store
-- Two-layer hallucination guard: distance threshold + "answer only from context" prompt
-- Retrieval evaluation script (8 test cases); smaller chunks improved the distance on the vacation query from 0.81 to 0.57
-- Python · ChromaDB · Anthropic API
+Question answering over your own documents with Claude: semantic search, source and page citations, REST API and a tool-calling agent
 
 [![tests](https://github.com/pavelsilinskiiwork/rag-assistant/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/rag-assistant/actions/workflows/tests.yml)
+
+- FastAPI service with Swagger · PDF upload with page-level citations `[file.pdf, p. 3]`
+- Two-layer hallucination guard: distance threshold + "answer only from context" prompt
+- Retrieval evaluation (8 cases); smaller chunks improved the distance on a key query from 0.81 to 0.57
+- Agent with tool calling and prompt-injection defenses (live test: 5 of 5 attacks resisted)
+- pytest · GitHub Actions CI · Docker Compose
+- Python · FastAPI · ChromaDB · Anthropic API
 
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
@@ -76,7 +81,6 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
-- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — Command-line RAG assistant: ChromaDB semantic search + Claude, with hallucination guardrails and a retrieval eval script · `Python`
 - [**wp-social-share**](https://github.com/pavelsilinskiiwork/wp-social-share) — Lightweight social share buttons for WordPress: Facebook, Twitter/X, LinkedIn, Pinterest, WhatsApp, plus a Copy Link button. No external scripts, no jQuery, no tracking, no cookies — inline SVG icons and vanilla JavaScript. · `PHP`
 - [**wp-popup-builder**](https://github.com/pavelsilinskiiwork/wp-popup-builder) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements with flexible trigger and display rules. · `PHP`
 - [**pavel-silinskii-cookie-consent**](https://github.com/pavelsilinskiiwork/pavel-silinskii-cookie-consent) — Lightweight GDPR/CCPA cookie consent banner for WordPress with bar and popup layouts, light/dark themes, and one-click accept/decline. No external requests, no tracking, vanilla JavaScript on the frontend. · `PHP`
@@ -109,8 +113,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 49 Easy · 122 Medium · 37 Hard
-- 🔥 Current streak: 57 days · 180 active days
+- ✅ 45 Easy · 119 Medium · 37 Hard
+- 🔥 Current streak: 57 days · 173 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
@@ -122,11 +126,11 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 - 🧩 More open-source WordPress plugins
 - 🅻 Laravel projects (APIs and full-stack apps)
-- 🐍 Python and LLM integrations — connecting AI to real backend systems
-- 🔌 RAG Assistant as a FastAPI service (REST + Swagger) with PDF ingestion
-- 🤖 LangChain and tool-using agents
+- 🌐 RAG Assistant: web chat UI and a live demo
+- 📄 Document extraction service: structured JSON from invoices and forms, PostgreSQL, accuracy evaluation
+- 🤖 More agent work: LangGraph, evaluation with Ragas
 - ⚛️ React / Vue — modern frontend to complement PHP backend skills
-- ☁️ AWS Certified Cloud Practitioner
+- ☁️ AWS Certified Cloud Practitioner (in progress)
 
 ## 📫 Let's Connect
 
