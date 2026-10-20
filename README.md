@@ -81,12 +81,13 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
+- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents with Claude: FastAPI, ChromaDB, PDF upload with page citations, tool-calling agent with prompt-injection defenses, tests, Docker, CI · `Python`
 - [**wp-social-share**](https://github.com/pavelsilinskiiwork/wp-social-share) — Lightweight social share buttons for WordPress: Facebook, Twitter/X, LinkedIn, Pinterest, WhatsApp, plus a Copy Link button. No external scripts, no jQuery, no tracking, no cookies — inline SVG icons and vanilla JavaScript. · `PHP`
 - [**wp-popup-builder**](https://github.com/pavelsilinskiiwork/wp-popup-builder) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements with flexible trigger and display rules. · `PHP`
 - [**pavel-silinskii-cookie-consent**](https://github.com/pavelsilinskiiwork/pavel-silinskii-cookie-consent) — Lightweight GDPR/CCPA cookie consent banner for WordPress with bar and popup layouts, light/dark themes, and one-click accept/decline. No external requests, no tracking, vanilla JavaScript on the frontend. · `PHP`
 - [**wp-age-verification**](https://github.com/pavelsilinskiiwork/wp-age-verification) — Age verification popup for WordPress. Shows a verification gate when a visitor enters the site (or selected pages/categories). · `PHP`
 - [**advanced-contact-forms**](https://github.com/pavelsilinskiiwork/advanced-contact-forms) — WordPress plugin for creating contact forms with drag-and-drop builder, database storage, REST API and CSV export · `PHP`
-- [**python-basics**](https://github.com/pavelsilinskiiwork/python-basics) — _No description yet_ · `Python`
+- [**python-basics**](https://github.com/pavelsilinskiiwork/python-basics) — Python fundamentals: console expense tracker with CSV persistence · `Python`
 - [**ecommerce-api**](https://github.com/pavelsilinskiiwork/ecommerce-api) — Laravel.E-commerce REST API with Stripe payment integration, shopping cart, order management and 24 automated tests · `PHP`
 - [**boilerplate-npm**](https://github.com/pavelsilinskiiwork/boilerplate-npm) — A boilerplate for the freeCodeCamp curriculum. · `JavaScript` · fork
 - [**job-tracker-api**](https://github.com/pavelsilinskiiwork/job-tracker-api) — REST API for tracking job applications — built with Laravel 13, JWT authentication, and Docker support. · `PHP`
@@ -113,8 +114,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 45 Easy · 119 Medium · 37 Hard
-- 🔥 Current streak: 57 days · 173 active days
+- ✅ 50 Easy · 122 Medium · 37 Hard
+- 🔥 Current streak: 57 days · 181 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
