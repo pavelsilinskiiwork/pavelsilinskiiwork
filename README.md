@@ -3,7 +3,7 @@
 **Full-Stack PHP Developer (Laravel, WordPress) · expanding into AI-powered applications**
 
 Based in Needham, MA US. 15+ years building web applications, e-commerce platforms, and API integrations.
-Now building Python LLM applications: RAG, vector search, tool-calling agents, with tests, Docker and CI.
+Now building Python LLM applications: RAG, vector search, tool-calling agents, with tests, Docker, CI and a public live demo.
 
 ## 🛠️ Tech Stack
 
@@ -36,6 +36,7 @@ Now building Python LLM applications: RAG, vector search, tool-calling agents, w
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![Anthropic](https://img.shields.io/badge/Anthropic_API-412991?style=flat)
+![Groq](https://img.shields.io/badge/Groq_API-F55036?style=flat)
 ![RAG](https://img.shields.io/badge/RAG-0A7B83?style=flat)
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6446?style=flat)
 ![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat&logo=pytest&logoColor=white)
@@ -43,17 +44,19 @@ Now building Python LLM applications: RAG, vector search, tool-calling agents, w
 
 ## 🚀 Featured Projects
 
-### [RAG Assistant](https://github.com/pavelsilinskiiwork/rag-assistant)
-Question answering over your own documents with Claude: semantic search, source and page citations, REST API and a tool-calling agent
+### [RAG Assistant](https://github.com/pavelsilinskiiwork/rag-assistant) · [🔗 Live demo](https://pavelsilinskiiwork.github.io/rag-assistant/)
+Question answering over your own documents: semantic search, source and page citations, web chat, REST API and a tool-calling agent. Runs on Claude or Groq models behind one provider interface
 
 [![tests](https://github.com/pavelsilinskiiwork/rag-assistant/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/rag-assistant/actions/workflows/tests.yml)
 
+- Public demo: GitHub Pages UI + FastAPI on Render, with per-IP and daily rate limits, uploads disabled, provider fallback and spending caps
 - FastAPI service with Swagger · PDF upload with page-level citations `[file.pdf, p. 3]`
-- Two-layer hallucination guard: distance threshold + "answer only from context" prompt
+- Three-layer hallucination guard: distance threshold, relative margin around the best chunk, "answer only from context" prompt
 - Retrieval evaluation (8 cases); smaller chunks improved the distance on a key query from 0.81 to 0.57
-- Agent with tool calling and prompt-injection defenses (live test: 5 of 5 attacks resisted)
+- Agent with tool calling and prompt-injection defenses (live test: 5 of 5 attacks resisted on both Claude Haiku and gpt-oss-120b)
+- Structured logs with latency, tokens and cost per request
 - pytest · GitHub Actions CI · Docker Compose
-- Python · FastAPI · ChromaDB · Anthropic API
+- Python · FastAPI · ChromaDB · Anthropic API · Groq API
 
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
@@ -127,7 +130,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 - 🧩 More open-source WordPress plugins
 - 🅻 Laravel projects (APIs and full-stack apps)
-- 🌐 RAG Assistant: web chat UI and a live demo
+- ☁️ RAG Assistant: AWS Bedrock as a second provider, reranking
 - 📄 Document extraction service: structured JSON from invoices and forms, PostgreSQL, accuracy evaluation
 - 🤖 More agent work: LangGraph, evaluation with Ragas
 - ⚛️ React / Vue — modern frontend to complement PHP backend skills
