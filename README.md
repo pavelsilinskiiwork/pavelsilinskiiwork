@@ -86,7 +86,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
-- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude and Groq providers, live demo · `Python`
+- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
 - [**wp-social-share**](https://github.com/pavelsilinskiiwork/wp-social-share) — Lightweight social share buttons for WordPress: Facebook, Twitter/X, LinkedIn, Pinterest, WhatsApp, plus a Copy Link button. No external scripts, no jQuery, no tracking, no cookies — inline SVG icons and vanilla JavaScript. · `PHP`
 - [**wp-popup-builder**](https://github.com/pavelsilinskiiwork/wp-popup-builder) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements with flexible trigger and display rules. · `PHP`
 - [**pavel-silinskii-cookie-consent**](https://github.com/pavelsilinskiiwork/pavel-silinskii-cookie-consent) — Lightweight GDPR/CCPA cookie consent banner for WordPress with bar and popup layouts, light/dark themes, and one-click accept/decline. No external requests, no tracking, vanilla JavaScript on the frontend. · `PHP`
@@ -119,8 +119,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 51 Easy · 124 Medium · 38 Hard
-- 🔥 Current streak: 57 days · 185 active days
+- ✅ 51 Easy · 125 Medium · 38 Hard
+- 🔥 Current streak: 57 days · 186 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
