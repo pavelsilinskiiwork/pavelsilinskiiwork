@@ -60,6 +60,17 @@ Question answering over your own documents: semantic search, source and page cit
 - pytest · GitHub Actions CI · Docker Compose
 - Python · FastAPI · ChromaDB · Anthropic API · Groq API · AWS Bedrock
 
+### [Document Extraction](https://github.com/pavelsilinskiiwork/doc-extraction)
+Invoices (PDF or text) to validated, structured JSON with an LLM. The model proposes values, Pydantic enforces the business rules, and a failed check goes back to the model as a precise error for a corrected retry
+
+[![tests](https://github.com/pavelsilinskiiwork/doc-extraction/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/doc-extraction/actions/workflows/tests.yml)
+
+- FastAPI `POST /extract` · schema with arithmetic checks (line amounts, subtotal, discount, tax, total) · money as `Decimal`
+- Retry with validation feedback · document text treated as untrusted input (a sample invoice carries an injected instruction)
+- Labelled synthetic invoices (US/German/UK layouts, PDF and text) and a field-level accuracy eval: 100% on gpt-oss-120b, 98.8% on Amazon Nova Lite (14 documents, small and easy set)
+- Same provider layer as RAG Assistant: Anthropic, Groq and AWS Bedrock
+- Python · FastAPI · Pydantic · pypdf · pytest · GitHub Actions CI
+
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
 
@@ -134,7 +145,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 - 🧩 More open-source WordPress plugins
 - 🅻 Laravel projects (APIs and full-stack apps)
 - 🔎 RAG Assistant: reranking and answer-level evaluation
-- 📄 Document extraction service: structured JSON from invoices and forms, PostgreSQL, accuracy evaluation
+- 📄 Document extraction: PostgreSQL storage, review and correction endpoints, harder documents (scans, multi-page)
 - 🤖 More agent work: LangGraph, evaluation with Ragas
 - ⚛️ React / Vue — modern frontend to complement PHP backend skills
 - ☁️ AWS Certified Cloud Practitioner (in progress)
