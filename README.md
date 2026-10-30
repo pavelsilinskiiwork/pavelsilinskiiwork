@@ -142,13 +142,12 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 ## 🗺️ What's Next
 
-- 🧩 More open-source WordPress plugins
-- 🅻 Laravel projects (APIs and full-stack apps)
-- 🔎 RAG Assistant: reranking and answer-level evaluation
 - 📄 Document extraction: PostgreSQL storage, review and correction endpoints, harder documents (scans, multi-page)
-- 🤖 More agent work: LangGraph, evaluation with Ragas
-- ⚛️ React / Vue — modern frontend to complement PHP backend skills
-- ☁️ AWS Certified Cloud Practitioner (in progress)
+- 🔎 RAG Assistant: reranking and answer-level evaluation with Ragas
+- 🤖 Agent work with LangGraph
+- ☁️ AWS: Cloud Practitioner, then Bedrock-based deployments
+- 🅻 Laravel projects (APIs and full-stack apps)
+- 🧩 More open-source WordPress plugins
 
 ## 📫 Let's Connect
 
