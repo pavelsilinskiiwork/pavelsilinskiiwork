@@ -100,6 +100,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
+- [**wp-back-to-top**](https://github.com/pavelsilinskiiwork/wp-back-to-top) — Lightweight, customizable Back to Top button for WordPress — vanilla JS, live preview, shortcode. · `PHP`
 - [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — LLM invoice extraction with schema validation, arithmetic checks, retry, PostgreSQL storage and a human review queue · `Python`
 - [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
 - [**wp-maintenance-mode**](https://github.com/pavelsilinskiiwork/wp-maintenance-mode) — Lightweight WordPress maintenance mode plugin: SEO-safe 503 + Retry-After, countdown with auto-disable, custom page, and access by role, IP whitelist or secret bypass link. No external scripts, no tracking. · `PHP`
@@ -136,8 +137,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 56 Easy · 130 Medium · 40 Hard
-- 🔥 Current streak: 57 days · 198 active days
+- ✅ 56 Easy · 131 Medium · 40 Hard
+- 🔥 Current streak: 57 days · 199 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
