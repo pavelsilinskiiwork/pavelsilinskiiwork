@@ -139,7 +139,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 <!--LEETCODE:START-->
 - ✅ 56 Easy · 132 Medium · 40 Hard
 - 🔥 Current streak: 57 days · 200 active days
-- 🏅 100 Days Badge 2026
+- 🏅 200 Days Badge 2026
 <!--LEETCODE:END-->
 
 ## 📊 GitHub Stats
