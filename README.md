@@ -100,6 +100,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
+- [**fastapi-render-cicd**](https://github.com/pavelsilinskiiwork/fastapi-render-cicd) — GitHub Actions CI/CD for a FastAPI service on Render: lint, tests, Docker check, gated deploy and live-version verification, topics: github-actions, ci-cd, fastapi, docker, render · `Python`
 - [**wp-back-to-top**](https://github.com/pavelsilinskiiwork/wp-back-to-top) — Lightweight, customizable Back to Top button for WordPress — vanilla JS, live preview, shortcode. · `PHP`
 - [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — LLM invoice extraction with schema validation, arithmetic checks, retry, PostgreSQL storage and a human review queue · `Python`
 - [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
@@ -137,8 +138,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 60 Easy · 136 Medium · 42 Hard
-- 🔥 Current streak: 57 days · 210 active days
+- ✅ 60 Easy · 136 Medium · 43 Hard
+- 🔥 Current streak: 57 days · 211 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
