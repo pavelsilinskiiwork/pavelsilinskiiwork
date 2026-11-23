@@ -3,7 +3,7 @@
 **Full-Stack PHP Developer (Laravel, WordPress) · expanding into AI-powered applications**
 
 Based in Needham, MA US. 15+ years building web applications, e-commerce platforms, and API integrations.
-Now building Python LLM applications: RAG, vector search, tool-calling agents, with tests, Docker, CI and a public live demo.
+Now building production-minded Python LLM applications: RAG, structured extraction with human review, tool-calling agents, Redis caching and rate limits, and CI/CD that proves what is deployed. Each project ships with tests, Docker, CI and evidence from real runs.
 
 ## 🛠️ Tech Stack
 
@@ -14,6 +14,7 @@ Now building Python LLM applications: RAG, vector search, tool-calling agents, w
 ![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat&logo=wordpress&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST_API-02569B?style=flat)
 ![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat&logo=stripe&logoColor=white)
 
@@ -74,6 +75,29 @@ Invoices (PDF or text) to validated, structured JSON with an LLM. The model prop
 - Same provider layer as RAG Assistant: Anthropic, Groq and AWS Bedrock
 - Python · FastAPI · Pydantic · PostgreSQL · SQLAlchemy · Docker Compose · pytest (63 tests) · GitHub Actions CI
 
+### [LLM Cache, Rate Limit and Budget](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit)
+Redis-backed controls in front of an LLM call: a response cache, a per-client rate limit and a daily spending cap
+
+[![tests](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit/actions/workflows/tests.yml)
+
+- Single-flight cache: 20 identical concurrent requests make one model call
+- Sliding-window rate limit in one Redis transaction, correct across several API processes · 429 with `Retry-After`
+- Daily budget with reserve-then-settle in integer micro-dollars: concurrent requests cannot overshoot the cap; cached answers keep working after it is spent
+- Explicit failure policy: cache fails open, limits and budget fail closed (503) unless `FAIL_OPEN=true`
+- Benchmark against a simulated 300 ms model: 300 requests needed 37 model calls instead of 300 (87.7% hit rate)
+- Python · FastAPI · Redis · Docker Compose · pytest (79 tests, fakeredis and real Redis) · GitHub Actions CI
+
+### [FastAPI to Render CI/CD](https://github.com/pavelsilinskiiwork/fastapi-render-cicd)
+A GitHub Actions pipeline that deploys only after every check passes, then proves the new commit is the one running in production
+
+[![pipeline](https://github.com/pavelsilinskiiwork/fastapi-render-cicd/actions/workflows/pipeline.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/fastapi-render-cicd/actions/workflows/pipeline.yml)
+
+- Jobs: lint, tests on Python 3.11-3.13 with a coverage gate, Docker build and smoke test, then deploy
+- Deploy hook for the exact commit, then a smoke test polls `/version` until production reports that commit and `/health` is ok
+- Verified with real runs: a broken test and a broken Dockerfile each stopped the pipeline before deploy
+- Least-privilege token, protected `production` environment, Dependabot, one deploy at a time
+- Python · FastAPI · GitHub Actions · Docker · Render
+
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
 
@@ -100,12 +124,9 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
-- [**llm-cache-ratelimit**](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit) — _No description yet_ · `Python`
-- [**fastapi-render-cicd**](https://github.com/pavelsilinskiiwork/fastapi-render-cicd) — GitHub Actions CI/CD for a FastAPI service on Render: lint, tests, Docker check, gated deploy and live-version verification, topics: github-actions, ci-cd, fastapi, docker, render · `Python`
-- [**wp-back-to-top**](https://github.com/pavelsilinskiiwork/wp-back-to-top) — Lightweight, customizable Back to Top button for WordPress — vanilla JS, live preview, shortcode. · `PHP`
-- [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — LLM invoice extraction with schema validation, arithmetic checks, retry, PostgreSQL storage and a human review queue · `Python`
-- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
 - [**wp-maintenance-mode**](https://github.com/pavelsilinskiiwork/wp-maintenance-mode) — Lightweight WordPress maintenance mode plugin: SEO-safe 503 + Retry-After, countdown with auto-disable, custom page, and access by role, IP whitelist or secret bypass link. No external scripts, no tracking. · `PHP`
+- [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — LLM invoice extraction with schema validation, arithmetic checks, retry, PostgreSQL storage and a human review queue. Claude, Groq and AWS Bedrock providers. · `Python`
+- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
 - [**wp-social-share**](https://github.com/pavelsilinskiiwork/wp-social-share) — Lightweight social share buttons for WordPress: Facebook, Twitter/X, LinkedIn, Pinterest, WhatsApp, plus a Copy Link button. No external scripts, no jQuery, no tracking, no cookies — inline SVG icons and vanilla JavaScript. · `PHP`
 - [**wp-popup-builder**](https://github.com/pavelsilinskiiwork/wp-popup-builder) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements with flexible trigger and display rules. · `PHP`
 - [**pavel-silinskii-cookie-consent**](https://github.com/pavelsilinskiiwork/pavel-silinskii-cookie-consent) — Lightweight GDPR/CCPA cookie consent banner for WordPress with bar and popup layouts, light/dark themes, and one-click accept/decline. No external requests, no tracking, vanilla JavaScript on the frontend. · `PHP`
@@ -123,7 +144,6 @@ WordPress plugin with drag-and-drop form builder and REST API
 - [**Pavel Silinskii Age Verification**](https://wordpress.org/plugins/pavel-silinskii-age-verification/) — Age verification popup for WordPress. Supports Yes/No and date of birth verification modes, with block or redirect on decline.
 - [**Pavel Silinskii Contact Forms**](https://wordpress.org/plugins/pavel-silinskii-contact-forms/) — A powerful contact form plugin with a drag-and-drop builder, database storage, email notifications, REST API, and CSV export of submissions.
 - [**Pavel Silinskii Cookie Consent**](https://wordpress.org/plugins/pavel-silinskii-cookie-consent/) — Lightweight GDPR/CCPA cookie consent banner with bar and popup layouts, light/dark themes, and one-click accept/decline.
-- [**Pavel Silinskii Maintenance Mode**](https://wordpress.org/plugins/pavel-silinskii-maintenance-mode/) — Maintenance mode for deploy scripts: toggle it from WP-CLI with a safety timeout. Branded 503 page, admins keep working.
 - [**Pavel Silinskii Popup Builder**](https://wordpress.org/plugins/pavel-silinskii-popup-builder/) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements.
 - [**Pavel Silinskii Social Share**](https://wordpress.org/plugins/pavel-silinskii-social-share/) — Lightweight social share buttons for WordPress. No external scripts, no tracking, GDPR-friendly.
 <!--WPPLUGINS:END-->
@@ -139,8 +159,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 60 Easy · 138 Medium · 43 Hard
-- 🔥 Current streak: 57 days · 213 active days
+- ✅ 55 Easy · 129 Medium · 39 Hard
+- 🔥 Current streak: 57 days · 195 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
