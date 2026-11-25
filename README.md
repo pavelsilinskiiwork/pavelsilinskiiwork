@@ -3,7 +3,7 @@
 **Full-Stack PHP Developer (Laravel, WordPress) · expanding into AI-powered applications**
 
 Based in Needham, MA US. 15+ years building web applications, e-commerce platforms, and API integrations.
-Now building production-minded Python LLM applications: RAG, structured extraction with human review, tool-calling agents, Redis caching and rate limits, and CI/CD that proves what is deployed. Each project ships with tests, Docker, CI and evidence from real runs.
+Now building production-minded Python LLM applications: RAG, structured extraction with human review, agents with a deterministic policy layer, an MCP server, Redis caching and rate limits, Prometheus and Grafana monitoring, and CI/CD that proves what is deployed. Each project ships with tests, Docker, CI and evidence from real runs.
 
 ## 🛠️ Tech Stack
 
@@ -31,6 +31,8 @@ Now building production-minded Python LLM applications: RAG, structured extracti
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat&logo=grafana&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-learning-232F3E?style=flat&logo=amazonwebservices&logoColor=white)
 
 **AI / Python**
@@ -41,6 +43,8 @@ Now building production-minded Python LLM applications: RAG, structured extracti
 ![Groq](https://img.shields.io/badge/Groq_API-F55036?style=flat)
 ![AWS Bedrock](https://img.shields.io/badge/AWS_Bedrock-232F3E?style=flat&logo=amazonwebservices&logoColor=white)
 ![RAG](https://img.shields.io/badge/RAG-0A7B83?style=flat)
+![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat)
+![MCP](https://img.shields.io/badge/MCP-000000?style=flat)
 ![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6446?style=flat)
 ![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat&logo=pytest&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
@@ -98,6 +102,41 @@ A GitHub Actions pipeline that deploys only after every check passes, then prove
 - Least-privilege token, protected `production` environment, Dependabot, one deploy at a time
 - Python · FastAPI · GitHub Actions · Docker · Render
 
+### [Support Triage Agent](https://github.com/pavelsilinskiiwork/support-triage-agent)
+A LangGraph agent that triages support tickets, with a deterministic policy between the model and the tools, evaluated against simpler designs on tickets that include prompt-injection attempts
+
+[![CI](https://github.com/pavelsilinskiiwork/support-triage-agent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/support-triage-agent/actions/workflows/ci.yml)
+
+- Graph: guard, classify, BM25 runbook retrieval, plan, verify, execute or escalate; only classify and plan call a model
+- Policy in plain code: refunds allowed only from trusted helpdesk metadata (charge age and amount), 2FA and email changes never automatic, replies must cite runbooks and may only contain links found in them, fail closed on any model error
+- Three variants compared on 46 labelled tickets (16 attacks): one naive call, one call plus the same policy, and the graph
+- Offline run with a stand-in model that obeys every injection: 17 of 24 risky tickets end unsafely with the naive agent, 1 of 24 with the policy
+- Live run on Claude Haiku (3 repeats): no unsafe outcome in any variant, so the attacks did not move this model; the graph was slightly more accurate but the gap rests on 2 or 3 tickets. Stated that way in the README, with its limits
+- Python · LangGraph · Pydantic · Anthropic, Bedrock and Groq adapters · pytest (102 tests) · GitHub Actions CI
+
+### [MCP Invoice Server](https://github.com/pavelsilinskiiwork/mcp-invoice-server)
+A Model Context Protocol server that lets an AI client review invoices from the doc-extraction API, built so that invoice text cannot talk the client into approving anything
+
+[![CI](https://github.com/pavelsilinskiiwork/mcp-invoice-server/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/mcp-invoice-server/actions/workflows/ci.yml)
+
+- Read tools by default; write tools (approve, correct, reject) are opt-in, show a preview first and need an explicit confirm, with a per-session write cap
+- Fail-closed audit log: if the audit record cannot be written, the write does not happen
+- Document text is labelled as untrusted and scanned for injection-like phrases; the API stays the authority, the server holds no business rules
+- Contract tests run against the real doc-extraction API in CI · stdio and streamable HTTP transports · demo client script
+- Python · MCP SDK · httpx · Pydantic · pytest with a coverage gate · GitHub Actions CI
+
+### [LLM Observability Stack](https://github.com/pavelsilinskiiwork/llm-observability-stack)
+Prometheus metrics, a Grafana dashboard defined as code and tested alert rules for an LLM service, with a load script that breaks it on purpose
+
+[![CI](https://github.com/pavelsilinskiiwork/llm-observability-stack/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/pavelsilinskiiwork/llm-observability-stack/actions/workflows/ci.yml)
+
+- Metrics: requests, latency histogram, tokens, cost, in-flight requests and daily spend against a budget, with low-cardinality labels
+- Five alert rules with promtool unit tests; the dashboard is generated by a script and CI fails if the committed JSON drifts
+- Load script with failing and slow phases: in a real run the error-rate alert fired about a minute after failures began and the latency alert about 65 seconds after the slow phase started (screenshots in the README)
+- Docker Compose brings up the app, Prometheus and Grafana; CI starts the app and Prometheus and checks that every dashboard query returns data
+- No Alertmanager yet, so alerts are visible but do not notify anyone (stated in the README)
+- Python · FastAPI · Prometheus · Grafana · Docker Compose · pytest (36 tests) · GitHub Actions CI
+
 ### [Job Application Tracker API](https://github.com/pavelsilinskiiwork/job-tracker-api)
 REST API for tracking job applications with status management and statistics
 
@@ -124,15 +163,9 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
-- [**support-triage-agent**](https://github.com/pavelsilinskiiwork/support-triage-agent) — LangGraph support-ticket agent with a deterministic policy layer, tested against prompt-injection tickets and compared with single-call variants. Offline eval, CI. · `Python`
-- [**llm-observability-stack**](https://github.com/pavelsilinskiiwork/llm-observability-stack) — Prometheus metrics, Grafana dashboard as code and tested alert rules for an LLM service, with a load script that breaks it on purpose. Docker Compose, promtool unit tests, CI. · `Python`
-- [**mcp-invoice-server**](https://github.com/pavelsilinskiiwork/mcp-invoice-server) — MCP server that lets an AI assistant review invoices: read tools, opt-in write tools with preview, audit log, session cap and prompt-injection flags. Python, MCP SDK, tested against a real API. · `Python`
-- [**llm-cache-ratelimit**](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit) — Redis cache with single-flight, sliding-window rate limit and daily budget cap in front of an LLM call. FastAPI, Docker Compose, tested on fakeredis and real Redis · `Python`
-- [**fastapi-render-cicd**](https://github.com/pavelsilinskiiwork/fastapi-render-cicd) — GitHub Actions pipeline: lint, tests on Python 3.11-3.13, Docker smoke test, then deploy to Render and verify the new commit is live · `Python`
-- [**wp-back-to-top**](https://github.com/pavelsilinskiiwork/wp-back-to-top) — Lightweight, customizable Back to Top button for WordPress — vanilla JS, live preview, shortcode. · `PHP`
-- [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — Invoices to validated JSON with an LLM: Pydantic checks, retry with feedback, PostgreSQL storage, human review queue and accuracy report. FastAPI, Docker Compose · `Python`
-- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
 - [**wp-maintenance-mode**](https://github.com/pavelsilinskiiwork/wp-maintenance-mode) — Lightweight WordPress maintenance mode plugin: SEO-safe 503 + Retry-After, countdown with auto-disable, custom page, and access by role, IP whitelist or secret bypass link. No external scripts, no tracking. · `PHP`
+- [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — LLM invoice extraction with schema validation, arithmetic checks, retry, PostgreSQL storage and a human review queue. Claude, Groq and AWS Bedrock providers. · `Python`
+- [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
 - [**wp-social-share**](https://github.com/pavelsilinskiiwork/wp-social-share) — Lightweight social share buttons for WordPress: Facebook, Twitter/X, LinkedIn, Pinterest, WhatsApp, plus a Copy Link button. No external scripts, no jQuery, no tracking, no cookies — inline SVG icons and vanilla JavaScript. · `PHP`
 - [**wp-popup-builder**](https://github.com/pavelsilinskiiwork/wp-popup-builder) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements with flexible trigger and display rules. · `PHP`
 - [**pavel-silinskii-cookie-consent**](https://github.com/pavelsilinskiiwork/pavel-silinskii-cookie-consent) — Lightweight GDPR/CCPA cookie consent banner for WordPress with bar and popup layouts, light/dark themes, and one-click accept/decline. No external requests, no tracking, vanilla JavaScript on the frontend. · `PHP`
@@ -150,7 +183,6 @@ WordPress plugin with drag-and-drop form builder and REST API
 - [**Pavel Silinskii Age Verification**](https://wordpress.org/plugins/pavel-silinskii-age-verification/) — Age verification popup for WordPress. Supports Yes/No and date of birth verification modes, with block or redirect on decline.
 - [**Pavel Silinskii Contact Forms**](https://wordpress.org/plugins/pavel-silinskii-contact-forms/) — A powerful contact form plugin with a drag-and-drop builder, database storage, email notifications, REST API, and CSV export of submissions.
 - [**Pavel Silinskii Cookie Consent**](https://wordpress.org/plugins/pavel-silinskii-cookie-consent/) — Lightweight GDPR/CCPA cookie consent banner with bar and popup layouts, light/dark themes, and one-click accept/decline.
-- [**Pavel Silinskii Maintenance Mode**](https://wordpress.org/plugins/pavel-silinskii-maintenance-mode/) — Maintenance mode for deploy scripts: toggle it from WP-CLI with a safety timeout. Branded 503 page, admins keep working.
 - [**Pavel Silinskii Popup Builder**](https://wordpress.org/plugins/pavel-silinskii-popup-builder/) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements.
 - [**Pavel Silinskii Social Share**](https://wordpress.org/plugins/pavel-silinskii-social-share/) — Lightweight social share buttons for WordPress. No external scripts, no tracking, GDPR-friendly.
 <!--WPPLUGINS:END-->
@@ -166,8 +198,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 61 Easy · 138 Medium · 44 Hard
-- 🔥 Current streak: 57 days · 215 active days
+- ✅ 55 Easy · 129 Medium · 39 Hard
+- 🔥 Current streak: 57 days · 195 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
@@ -179,7 +211,6 @@ WordPress plugin with drag-and-drop form builder and REST API
 
 - 📄 Document extraction: harder documents (scans, multi-page) and a simple review UI
 - 🔎 RAG Assistant: reranking and answer-level evaluation with Ragas
-- 🤖 Agent work with LangGraph
 - ☁️ AWS: Cloud Practitioner, then Bedrock-based deployments
 - 🅻 Laravel projects (APIs and full-stack apps)
 - 🧩 More open-source WordPress plugins
