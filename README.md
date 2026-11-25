@@ -124,7 +124,9 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
+- [**support-triage-agent**](https://github.com/pavelsilinskiiwork/support-triage-agent) — LangGraph support-ticket agent with a deterministic policy layer, tested against prompt-injection tickets and compared with single-call variants. Offline eval, CI. · `Python`
 - [**llm-observability-stack**](https://github.com/pavelsilinskiiwork/llm-observability-stack) — Prometheus metrics, Grafana dashboard as code and tested alert rules for an LLM service, with a load script that breaks it on purpose. Docker Compose, promtool unit tests, CI. · `Python`
+- [**mcp-invoice-server**](https://github.com/pavelsilinskiiwork/mcp-invoice-server) — MCP server that lets an AI assistant review invoices: read tools, opt-in write tools with preview, audit log, session cap and prompt-injection flags. Python, MCP SDK, tested against a real API. · `Python`
 - [**llm-cache-ratelimit**](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit) — Redis cache with single-flight, sliding-window rate limit and daily budget cap in front of an LLM call. FastAPI, Docker Compose, tested on fakeredis and real Redis · `Python`
 - [**fastapi-render-cicd**](https://github.com/pavelsilinskiiwork/fastapi-render-cicd) — GitHub Actions pipeline: lint, tests on Python 3.11-3.13, Docker smoke test, then deploy to Render and verify the new commit is live · `Python`
 - [**wp-back-to-top**](https://github.com/pavelsilinskiiwork/wp-back-to-top) — Lightweight, customizable Back to Top button for WordPress — vanilla JS, live preview, shortcode. · `PHP`
@@ -164,8 +166,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 60 Easy · 138 Medium · 44 Hard
-- 🔥 Current streak: 57 days · 214 active days
+- ✅ 61 Easy · 138 Medium · 44 Hard
+- 🔥 Current streak: 57 days · 215 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
