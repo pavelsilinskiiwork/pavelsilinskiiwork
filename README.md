@@ -180,10 +180,16 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 📚 All Repositories
 
 <!--REPOS:START-->
+- [**fastapi-render-cicd**](https://github.com/pavelsilinskiiwork/fastapi-render-cicd) — GitHub Actions pipeline: lint, tests on Python 3.11-3.13, Docker smoke test, then deploy to Render and verify the new commit is live · `Python`
 - [**llm-conversation-store**](https://github.com/pavelsilinskiiwork/llm-conversation-store) — Chat history for LLM apps on MongoDB and DynamoDB with TTL. One contract test suite, run against real databases in CI. · `Python`
-- [**wp-maintenance-mode**](https://github.com/pavelsilinskiiwork/wp-maintenance-mode) — Lightweight WordPress maintenance mode plugin: SEO-safe 503 + Retry-After, countdown with auto-disable, custom page, and access by role, IP whitelist or secret bypass link. No external scripts, no tracking. · `PHP`
-- [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — LLM invoice extraction with schema validation, arithmetic checks, retry, PostgreSQL storage and a human review queue. Claude, Groq and AWS Bedrock providers. · `Python`
+- [**llm-observability-stack**](https://github.com/pavelsilinskiiwork/llm-observability-stack) — Prometheus metrics, Grafana dashboard as code and tested alert rules for an LLM service, with a load script that breaks it on purpose. Docker Compose, promtool unit tests, CI. · `Python`
+- [**support-triage-agent**](https://github.com/pavelsilinskiiwork/support-triage-agent) — LangGraph support-ticket agent with a deterministic policy layer, tested against prompt-injection tickets and compared with single-call variants. Offline eval, CI. · `Python`
+- [**mcp-invoice-server**](https://github.com/pavelsilinskiiwork/mcp-invoice-server) — MCP server that lets an AI assistant review invoices: read tools, opt-in write tools with preview, audit log, session cap and prompt-injection flags. Python, MCP SDK, tested against a real API. · `Python`
+- [**llm-cache-ratelimit**](https://github.com/pavelsilinskiiwork/llm-cache-ratelimit) — Redis cache with single-flight, sliding-window rate limit and daily budget cap in front of an LLM call. FastAPI, Docker Compose, tested on fakeredis and real Redis · `Python`
+- [**wp-back-to-top**](https://github.com/pavelsilinskiiwork/wp-back-to-top) — Lightweight, customizable Back to Top button for WordPress — vanilla JS, live preview, shortcode. · `PHP`
+- [**doc-extraction**](https://github.com/pavelsilinskiiwork/doc-extraction) — Invoices to validated JSON with an LLM: Pydantic checks, retry with feedback, PostgreSQL storage, human review queue and accuracy report. FastAPI, Docker Compose · `Python`
 - [**rag-assistant**](https://github.com/pavelsilinskiiwork/rag-assistant) — RAG question answering over documents: FastAPI, ChromaDB, PDF page citations, tool-calling agent with prompt-injection defenses, Claude, Groq and AWS Bedrock providers, live demo · `Python`
+- [**wp-maintenance-mode**](https://github.com/pavelsilinskiiwork/wp-maintenance-mode) — Lightweight WordPress maintenance mode plugin: SEO-safe 503 + Retry-After, countdown with auto-disable, custom page, and access by role, IP whitelist or secret bypass link. No external scripts, no tracking. · `PHP`
 - [**wp-social-share**](https://github.com/pavelsilinskiiwork/wp-social-share) — Lightweight social share buttons for WordPress: Facebook, Twitter/X, LinkedIn, Pinterest, WhatsApp, plus a Copy Link button. No external scripts, no jQuery, no tracking, no cookies — inline SVG icons and vanilla JavaScript. · `PHP`
 - [**wp-popup-builder**](https://github.com/pavelsilinskiiwork/wp-popup-builder) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements with flexible trigger and display rules. · `PHP`
 - [**pavel-silinskii-cookie-consent**](https://github.com/pavelsilinskiiwork/pavel-silinskii-cookie-consent) — Lightweight GDPR/CCPA cookie consent banner for WordPress with bar and popup layouts, light/dark themes, and one-click accept/decline. No external requests, no tracking, vanilla JavaScript on the frontend. · `PHP`
@@ -201,6 +207,7 @@ WordPress plugin with drag-and-drop form builder and REST API
 - [**Pavel Silinskii Age Verification**](https://wordpress.org/plugins/pavel-silinskii-age-verification/) — Age verification popup for WordPress. Supports Yes/No and date of birth verification modes, with block or redirect on decline.
 - [**Pavel Silinskii Contact Forms**](https://wordpress.org/plugins/pavel-silinskii-contact-forms/) — A powerful contact form plugin with a drag-and-drop builder, database storage, email notifications, REST API, and CSV export of submissions.
 - [**Pavel Silinskii Cookie Consent**](https://wordpress.org/plugins/pavel-silinskii-cookie-consent/) — Lightweight GDPR/CCPA cookie consent banner with bar and popup layouts, light/dark themes, and one-click accept/decline.
+- [**Pavel Silinskii Maintenance Mode**](https://wordpress.org/plugins/pavel-silinskii-maintenance-mode/) — Maintenance mode for deploy scripts: toggle it from WP-CLI with a safety timeout. Branded 503 page, admins keep working.
 - [**Pavel Silinskii Popup Builder**](https://wordpress.org/plugins/pavel-silinskii-popup-builder/) — Lightweight popup builder for WordPress. Create popups for promotions, newsletter signups, and announcements.
 - [**Pavel Silinskii Social Share**](https://wordpress.org/plugins/pavel-silinskii-social-share/) — Lightweight social share buttons for WordPress. No external scripts, no tracking, GDPR-friendly.
 <!--WPPLUGINS:END-->
@@ -216,8 +223,8 @@ WordPress plugin with drag-and-drop form builder and REST API
 ## 💻 LeetCode
 
 <!--LEETCODE:START-->
-- ✅ 55 Easy · 129 Medium · 39 Hard
-- 🔥 Current streak: 57 days · 195 active days
+- ✅ 61 Easy · 141 Medium · 44 Hard
+- 🔥 Current streak: 57 days · 218 active days
 - 🏅 100 Days Badge 2026
 <!--LEETCODE:END-->
 
